@@ -72,3 +72,15 @@ __David Martínez de la Casa García__
 d.martinezgarc@alumnos.urjc.es
 
 drimer1994@gmail.com
+
+## Fase 2
+
+# Capturas
+Página principal http://i.imgur.com/A5AvoFk.png
+Página del libro http://i.imgur.com/5nMJRKd.png
+Página de login http://i.imgur.com/SleukVz.png
+Página de perfíl http://i.imgur.com/7EiNX4V.png
+Página de administración 
+
+# Diagrama de navegción
+Enlance 
