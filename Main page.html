@@ -24,8 +24,113 @@
     <link type="text/css" rel="stylesheet" href="styles/jquery.news-ticker.css">
      <link type="text/css" rel="stylesheet" href="styles/jplist-custom.css">
      <link type="text/css" rel="stylesheet" href="styles/jplist-custom.css">
+
+
+    <link rel="stylesheet" href="styles/a_propios/hover-min.css">
+    <link rel="stylesheet" href="styles/a_propios/loginComponent.css">
+    <link rel="stylesheet" href="styles/a_propios/customTemplateRed.css">
+
+
 </head>
 <body>
+
+<div class="modal modal-transparent fade" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Usuario</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="#" class="active" id="login-form-link">Conectarse</a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a href="#" id="register-form-link" class="">Registrarse</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="login-form" style="display: block;">
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="login-form-username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="login-form-password" tabindex="2" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="form-group text-center">
+                    <span>
+                    <input type="checkbox" tabindex="3" name="login-form-remember" id="login-form-remember">
+                    </span>
+                                        <label for="login-form-remember"> Recuerdame</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <button type="button"  id="login-form-btn-sent" class="form-control btn btn-primary mytemplate-btn-circle hvr-icon-pop">Conectarse</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="text-center">
+                                                    <a href="" tabindex="5" class="forgot-password">He olvidado la contraseña</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <form id="register-form"  style="display: none;">
+
+                                    <ul id="register-form-tabs" class="nav nav-pills nav-justified">
+                                        <li class="active"><a class="btn btn-primary mytemplate-btn-circle hvr-underline-from-right" id="register-form-userdata-tab" data-toggle="pill" href="#register-form-userdata">Datos de usuario</a></li>
+                                        <li><a class="btn btn-primary mytemplate-btn-circle hvr-underline-from-left" data-toggle="pill" href="#register-form-personaldata">Datos personales</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div id="register-form-userdata" class="tab-pane fade in active">
+                                            <div class="form-group">
+                                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" name="email" id="email"  class="form-control" placeholder="Email Address" value="">
+                                            </div>
+                                        </div>
+                                        <div id="register-form-personaldata" class="tab-pane fade">
+                                            <div class="form-group">
+                                                <input type="password" name="password" id="password"  class="form-control" placeholder="Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="confirm-password" id="confirm-password"  class="form-control" placeholder="Confirm Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                        <button id="register-form-btn-sent" type="button" class="form-control btn btn-primary mytemplate-btn-circle hvr-icon-pop"  tabindex="4">Registrarse</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
     <div>
         <!--BEGIN BACK TO TOP-->
         <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
@@ -47,15 +152,20 @@
                     </li>
                     <li class="dropdown"><a data-hover="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-envelope fa-fw"></i><span class="badge badge-orange">7</span></a></li>
                     
-                    <li class="dropdown"><a data-hover="dropdown" href="#" class="dropdown-toggle"><span class="badge badge-yellow">8</span><i class="fa fa-tasks fa-fw"></i></a></li>
+                    <li class="dropdown"><a data-hover="dropdown" href="#" class="dropdown-toggle"><span class="badge badge-yellow">8</span><i class="fa fa-book"></i></a></li>
                     <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs">Usuario</span>&nbsp;<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-user pull-right">
+                            <!-- Solo aparecerá si no se esta logeado -->
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#modal-transparent"><i class="fa fa-key"></i>Usuario</a>
+                            </li>
+                            <!-- Solo aparecerá si se esta logueado -->
                             <li><a href="#"><i class="fa fa-user"></i>Mi perfil</a></li>
                             <li><a href="#"><i class="fa fa-calendar"></i>Mi calendario</a></li>
                             <li><a href="#"><i class="fa fa-envelope"></i>Mis notificaciones<span class="badge badge-danger">3</span></a></li>
                             <li><a href="#"><i class="fa fa-tasks"></i>Mis transacciones<span class="badge badge-success">7</span></a></li>
                             <li class="divider"></li>
-                            <li><a href="Login.html"><i class="fa fa-key"></i>Cerrar sesión</a></li>
+                            <li><a href="Login.html"><i class="fa fa-key"></i>Cerrar sesión</a>
                         </ul>
                     </li>
                 </ul>
@@ -159,18 +269,24 @@
                         <div class="panel">
                             <div class="panel-body">
                                 <div id="grid-layout-table-1" class="box jplist">
+
+
                                     <div class="jplist-ios-button"><i class="fa fa-sort"></i>jPList Actions</div>
+
                                     <div class="jplist-panel box panel-top">
-                                        <button type="button" data-control-type="reset" data-control-name="reset" data-control-action="reset" class="jplist-reset-btn btn btn-default">Todos los tipos</button>
-                                        <button type="button" data-control-type="reset" data-control-name="reset" data-control-action="reset" class="jplist-reset-btn btn btn-default">Libros</button>
-                                        <button type="button" data-control-type="reset" data-control-name="reset" data-control-action="reset" class="jplist-reset-btn btn btn-default">Revistas</button>
-                                        <div class="text-filter-box">
+                                        <div class="btn-group btn-group-justified btn-radio-group " role="group">
+                                            <a type="button" data-control-type="reset" data-control-name="reset" data-control-action="reset" class="jplist-reset-btn btn btn-default btn-secondary animated ">Todos los tipos</a>
+                                            <a type="button" data-control-type="reset" data-control-name="reset" data-control-action="reset" class="jplist-reset-btn btn btn-default btn-secondary animated ">Libros</a>
+                                            <a type="button" data-control-type="reset" data-control-name="reset" data-control-action="reset" class="jplist-reset-btn btn btn-default btn-secondary animated ">Revistas</a>
+                                        </div>
+                                            <div class="text-filter-box">
                                             <div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input data-path=".title" type="text" value="" placeholder="Filtrar por título" data-control-type="textbox" data-control-name="title-filter" data-control-action="filter" class="form-control"/></div>
                                         </div>
                                         <div class="text-filter-box">
                                             <div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input data-path=".desc" type="text" value="" placeholder="Filtrar por descripción" data-control-type="textbox" data-control-name="desc-filter" data-control-action="filter" class="form-control"/></div>
                                         </div>
                                     </div>
+
                                     <div class="box text-shadow">
                                         <table class="demo-tbl"><!--<item>1</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -277,8 +393,8 @@
                                                     <p class="desc">A capital city (or just, capital) is the area of a country, province, region, or state considered to enjoy primary status; although there are exceptions, a capital is typically a city that physically encompasses the offices and meeting places of the seat of government and is usually fixed by law or by the constitution. An
                                                         alternative term is political capital, but this phrase has a second meaning based on an alternate sense of the word capital. The capital is often, but not necessarily, the largest city of its constituent area.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>14</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -291,8 +407,8 @@
                                                     <p class="desc">Coffee is a brewed beverage with a bitter, acidic flavor prepared from the roasted seeds of the coffee plant. The beans are found in coffee cherries, which grow on trees cultivated in over 70 countries, primarily in equatorial Latin America, Southeast Asia, South Asia and Africa. Green (unroasted) coffee is one of the most traded
                                                         agricultural commodities in the world. Coffee can have a stimulating effect on humans due to its caffeine content. It is one of the most-consumed beverages in the world.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>15</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -305,8 +421,8 @@
                                                     <p class="desc">A coin is a piece of hard material that is standardized in weight, is produced in large quantities in order to facilitate trade, and primarily can be used as a legal tender. Coins are usually metal or a metallic material and sometimes made of synthetic materials, usually in the shape of a disc, and most often issued by a
                                                         government. Coins are used as a form of money in transactions of various kinds, from the everyday circulation coins to the storage of large numbers of bullion coins. In the present day, coins and banknotes make up currency, the cash forms of all modern money systems.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>16</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -319,8 +435,8 @@
                                                     <p class="desc">A crayon is a stick of colored wax, charcoal, chalk, or other materials used for writing, coloring, drawing, and other methods of illustration. A crayon made of oiled chalk is called an oil pastel; when made of pigment with a dry binder, it is simply a pastel; both are popular media for color artwork. A grease pencil or china
                                                         marker (UK chinagraph pencil) is made of colored hardened grease and is useful for marking on hard, glossy surfaces such as porcelain or glass. Some fine arts companies such as Swiss Caran d'Ache manufacture water-soluble crayons, whose colors are easily mixed once applied to media.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>17</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -333,8 +449,8 @@
                                                     <p class="desc">A cupcake (also British English: fairy cake; Australian English: patty cake or cup cake) is a small cake designed to serve one person, frequently baked in a small, thin paper or aluminum cup. As with larger cakes, frosting and other cake decorations, such as sprinkles, are common on cupcakes. Although their origin is unknown,
                                                         recipes for cupcakes have been printed since at least the late 12th century.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>18</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -347,8 +463,8 @@
                                                     <p class="desc">A nest is a place of refuge to hold an animal's eggs or provide a place to live or raise offspring. They are usually made of some organic material such as twigs, grass, and leaves; or may simply be a depression in the ground, or a hole in a tree, rock or building. Human-made materials, such as string, plastic, cloth, hair or
                                                         paper, may be used.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>19</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -361,8 +477,8 @@
                                                     <p class="desc">A flower, sometimes known as a bloom or blossom, is the reproductive structure found in flowering plants (plants of the division Magnoliophyta, also called angiosperms). The biological function of a flower is to effect reproduction, usually by providing a mechanism for the union of sperm with eggs. Flowers may facilitate
                                                         outcrossing (fusion of sperm and eggs from different individuals in a population) or allow selfing (fusion of sperm and egg from the same flower).</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>20</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -375,8 +491,8 @@
                                                     <p class="desc">A pseudanthium (Greek for "false flower") or flower head is a special type of inflorescence, in which several flowers are grouped together to form a flower-like structure. The real flowers are generally small and greatly reduced, but can sometimes be quite large (as in the sunflower flower head). Pseudanthia take various forms.
                                                         The individual flowers of a pseudanthium can be called florets.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>21</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -389,8 +505,8 @@
                                                     <p class="desc">The flowering plants (angiosperms), also known as Angiospermae or Magnoliophyta, are the most diverse group of land plants. Angiosperms are seed-producing plants like the gymnosperms and can be distinguished from the gymnosperms by a series of synapomorphies (derived characteristics). These characteristics include flowers,
                                                         endosperm within the seeds, and the production of fruits that contain the seeds.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button><p class="like">90 Likes</p></td>
                                             </tr>
                                             <!--<item>22</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -403,8 +519,8 @@
                                                     <p class="desc">A fountain (from the Latin "fons" or "fontis", a source or spring) is a piece of architecture which pours water into a basin or jets it into the air either to supply drinking water or for decorative or dramatic effect. Fountains were originally purely functional, connected to springs or aqueducts and used to provide drinking water
                                                         and water for bathing and washing to the residents of cities, towns and villages. Until the late 19th century most fountains operated by gravity, and needed a source of water higher than the fountain, such as a reservoir or aqueduct, to make the water flow or jet into the air.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>23</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -417,8 +533,8 @@
                                                     <p class="desc">A leaf is an organ of a vascular plant, as defined in botanical terms, and in particular in plant morphology. Foliage is a mass noun that refers to leaves as a feature of plants. Typically a leaf is a thin, flattened organ borne above ground and specialized or photosynthesis, but many types of leaves are adapted in ways almost
                                                         unrecognisable in those terms: some are not flat (for example many succulent leaves and conifers), some are not above ground (such as bulb scales), and some are without major photosynthetic function (consider for example cataphylls, spines, and cotyledons).</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>24</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -431,8 +547,8 @@
                                                     <p class="desc">Landscape comprises the visible features of an area of land, including the physical elements of landforms such as (ice-capped) mountains, hills, water bodies such as rivers, lakes, ponds and the sea, living elements of land cover including indigenous vegetation, human elements including different forms of land use, buildings and
                                                         structures, and transitory elements such as lighting and weather conditions.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>25</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -445,8 +561,8 @@
                                                     <p class="desc">A cone (in formal botanical usage: strobilus, plural strobili) is an organ on plants in the division Pinophyta (conifers) that contains the reproductive structures. The familiar woody cone is the female cone, which produces seeds. The male cones, which produce pollen, are usually herbaceous and much less conspicuous even at full
                                                         maturity. The name "cone" derives from the fact that the shape in some species resembles a geometric cone. The individual plates of a cone are known as scales.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>26</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -460,8 +576,8 @@
                                                         tributary and rill. There are no official definitions for generic terms, such as river, as applied to geographic features, although in some countries or communities a stream may be defined by its size. Many names for small rivers are specific to geographic location; one example is "burn" in Scotland and northeast England. Sometimes a river is
                                                         said to be larger than a creek, but this is not always the case, because of vagueness in the language.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>27</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -473,8 +589,8 @@
 
                                                     <p class="desc">The source or headwaters of a river or stream is the furthest place in that river or stream from its estuary or confluence with another river, as measured along the course of the river.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>28</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -488,8 +604,8 @@
                                                         horizon because of atmospheric refraction, making the sunset appear to occur when the Sun's disk is already about one diameter below the horizon. Sunset is distinct from dusk, which is the moment at which darkness falls, which occurs when the Sun is approximately eighteen degrees below the horizon. The period between sunset and dusk is called
                                                         twilight.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>29</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -503,8 +619,8 @@
                                                         trunk diameter (30 cm girth). Woody plants that do not meet these definitions by having multiple stems and/or small size are usually called shrubs, although many trees such as Mallee do not meet such definitions. Compared with most other plants, trees are long-lived, some reaching several thousand years old and growing to up to 115 m (379 ft)
                                                         high.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>30</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -516,8 +632,8 @@
 
                                                     <p class="desc">Winter is the coldest season of the year in temperate climates, between autumn and spring. At the winter solstice, the days are shortest and the nights are longest, with days lengthening as the season progresses after the solstice.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>31</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -530,8 +646,8 @@
                                                     <p class="desc">A see saw (also known as a teeter-totter or teeter board) is a long, narrow board pivoted in the middle so that, as one end goes up, the other goes down. Mechanically a seesaw is a lever and fulcrum. Seesaws also work as a simple example of a mechanical system with two equilibrium positions. One side is stable, while the other is
                                                         unstable.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>32</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -544,8 +660,8 @@
                                                     <p class="desc">The Sun is the star at the center of the Solar System. It is almost perfectly spherical and consists of hot plasma interwoven with magnetic fields. It has a diameter of about 1,392,000 km, about 109 times that of Earth, and its mass accounts for about 99.86% of the total mass of the Solar System. Chemically, about three quarters
                                                         of the Sun's mass consists of hydrogen, while the rest is mostly helium. The remainder (1.69%, which nonetheless equals 5,628 times the mass of Earth) consists of heavier elements, including oxygen, carbon, neon and iron, among others.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                             <!--<item>33</item>-->
                                             <tr class="tbl-item"><!--<img/>-->
@@ -559,8 +675,8 @@
                                                         secondary xylem in the stems of trees (and other woody plants). In a living tree it performs a support function, enabling woody plants to grow large or to stand up for themselves. It also mediates the transfer of water and nutrients to the leaves and other growing tissues. Wood may also refer to other plant materials with comparable
                                                         properties, and to material engineered from wood, or wood chips or fiber.</p>
 
-                                                    <button class="btn">Añadir al carro</button>
-                                                    <button class="btn">Más detalles</button></td>
+                                                    <button class="btn carro">Añadir al carro</button>
+                                                   <button class="btn inter">Más detalles</button></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -652,6 +768,8 @@
     <script src="script/jplist.min.js"></script>
     <script src="script/jplist.js"></script>
 
+    <script src="script/a_propios/modalWinJS.js"></script>
+    <script src="script/a_propios/btnRadioComponent.js"></script>
     <!--CORE JAVASCRIPT-->
     <script src="script/main.js"></script>
     <script>        (function (i, s, o, g, r, a, m) {
