@@ -87,4 +87,4 @@ Página de perfíl http://i.imgur.com/7EiNX4V.png
 Página de administración 
 
 ## Diagrama de navegción
-Enlace 
+Enlace https://drive.google.com/open?id=0B2N3iNpPLHN-NDR3Y2R2dU5QODlqSFZ6SEMwZGhhVVRaSmg0
