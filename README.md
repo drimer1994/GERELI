@@ -1,8 +1,8 @@
-# GERELI
+# BREMS
 Book-Magazine Management System
 
 ## Nombre de la aplicación web: 
-GERELI
+# BREMS
 
 ## Temática de la Web y descripción: 
 Gestión online de reserva de libros y revistas de una biblioteca.
@@ -73,8 +73,18 @@ d.martinezgarc@alumnos.urjc.es
 
 drimer1994@gmail.com
 
-## Fase 2
+# Fase 2
 
-# Capturas
+## Capturas
+Página principal http://i.imgur.com/A5AvoFk.png
 
-Login: <blockquote class="imgur-embed-pub" lang="en" data-id="a/OW3RC"><a href="//imgur.com/a/OW3RC">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+Página del libro http://i.imgur.com/5nMJRKd.png
+
+Página de login http://i.imgur.com/SleukVz.png
+
+Página de perfíl http://i.imgur.com/7EiNX4V.png
+
+Página de administración 
+
+## Diagrama de navegción
+Enlace https://drive.google.com/open?id=0B2N3iNpPLHN-NDR3Y2R2dU5QODlqSFZ6SEMwZGhhVVRaSmg0
