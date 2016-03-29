@@ -77,9 +77,13 @@ drimer1994@gmail.com
 
 ## Capturas
 Página principal http://i.imgur.com/A5AvoFk.png
+
 Página del libro http://i.imgur.com/5nMJRKd.png
+
 Página de login http://i.imgur.com/SleukVz.png
+
 Página de perfíl http://i.imgur.com/7EiNX4V.png
+
 Página de administración 
 
 ## Diagrama de navegción
