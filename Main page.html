@@ -29,10 +29,112 @@
     <link rel="stylesheet" href="styles/a_propios/hover-min.css">
     <link rel="stylesheet" href="styles/a_propios/loginComponent.css">
     <link rel="stylesheet" href="styles/a_propios/customTemplateRed.css">
-
+    <link rel="stylesheet" href="styles/a_propios/profileComponent.css">
 
 </head>
 <body>
+
+
+<div class="modal modal-transparent fade" id="modal-profile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Perfil Usuario</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-login">
+                    <div class="panel-body">
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="card hovercard">
+                                <div class="card-background">
+                                    <img class="card-bkimg" alt="" src="images/avatar/profile-pic.png">
+                                    <!-- http://lorempixel.com/850/280/people/9/ -->
+                                </div>
+                                <div class="useravatar">
+                                    <img class="card-bkimg" alt="" src="images/avatar/profile-pic.png">
+                                </div>
+                                <div class="card-info"> <span class="card-title">Nombre Usuario</span>
+
+                                </div>
+                            </div>
+                            <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+                                <div class="btn-group" role="group">
+                                    <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab">
+                                        <div class="hidden-xs">Datos Personales</div>
+                                    </button>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab">
+                                        <div class="hidden-xs">Direccion</div>
+                                    </button>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab">
+                                        <div class="hidden-xs">Libros</div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="well">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="tab1">
+                                        <div class="form-group">
+                                            <label for="email">Email :</label>
+                                            <input type="email" class="form-control" id="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pwd">Password:</label>
+                                            <input type="password" class="form-control" id="pwd">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade in" id="tab2">
+                                        <div class="form-group">
+                                            <label for="email">Calle:</label>
+                                            <input type="text" class="form-control" id="dirr">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pwd">CP:</label>
+                                            <input type="text" class="form-control" id="cp">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade in" id="tab3">
+                                        <div class="form-group">
+                                            <label for="book">Libro favorito:</label>
+                                            <input type="text" class="form-control" id="book">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="modal modal-transparent fade" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -160,7 +262,9 @@
                                 <a href="#" data-toggle="modal" data-target="#modal-transparent"><i class="fa fa-key"></i>Usuario</a>
                             </li>
                             <!-- Solo aparecerá si se esta logueado -->
-                            <li><a href="#"><i class="fa fa-user"></i>Mi perfil</a></li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#modal-profile"</i>Mi perfil</a>
+                            </li>
                             <li><a href="#"><i class="fa fa-calendar"></i>Mi calendario</a></li>
                             <li><a href="#"><i class="fa fa-envelope"></i>Mis notificaciones<span class="badge badge-danger">3</span></a></li>
                             <li><a href="#"><i class="fa fa-tasks"></i>Mis transacciones<span class="badge badge-success">7</span></a></li>
@@ -766,6 +870,15 @@
         ga('send', 'pageview');
 
 
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".btn-pref .btn").click(function () {
+            $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+            // $(".tab").addClass("active"); // instead of this do the below
+            $(this).removeClass("btn-default").addClass("btn-primary");
+        });
+    });
 </script>
 </body>
 </html>
