@@ -147,7 +147,7 @@ hr {
 #topbar .navbar-header {
   width: 250px;
   height: 100%;
-  background: #1E1E1E;
+  background: #d93434;
   text-align: center;
 }
 
@@ -282,7 +282,7 @@ hr {
   height: 100%;
   border: 0 !important;
   border-radius: 0;
-  background: #3C3C3C;
+  background: #962424;
 
 }
 #topbar .navbar-top-links li {
@@ -848,7 +848,7 @@ background: #3e77ab; /* Old browsers */
 }
 .navbar-static-side ul li a:hover,
 .navbar-static-side ul li a:focus {
-background: #303030; /* Old browsers */
+background: #0c6bab; /* Old browsers */
   transition: 0.2s all ease-in-out;
   outline: none;
   color:#FFF;
