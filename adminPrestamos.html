@@ -104,11 +104,11 @@
                 <ul id="side-menu" class="nav">
 
                      <div class="clearfix"></div>
-                    <li class="active"><a href="Main%20page.html"><span class="menu-title">Página principal</span></a></li>
-                    <li  class="active"><a href=""><span class="menu-title">Peticiones de alta</span></a></li>
+                    <li><a href="Main%20page.html"><span class="menu-title">Página principal</span></a></li>
+                    <li><a href="Main%20page.html"><span class="menu-title">Peticiones de alta</span></a></li>
                     <li><a href="adminElementos.html"><span class="menu-title">Administrar elementos</span></a></li>
-                    <li><a href="adminPrestamos.html"><span class="menu-title">Adminstrar préstamos</span></a></li>
-                    <li><a href="adminMultas.html"><span class="menu-title">Administrar múltas</span></a></li>
+                    <li  class="active"><a href="Main%20page.html"><span class="menu-title">Adminstrar préstamos</span></a></li>
+                    <li><a href="Main%20page.html"><span class="menu-title">Administrar múltas</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -119,7 +119,7 @@
                 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                     <div class="page-header pull-left">
                         <div class="page-title">
-                            Peticiones de alta</div>
+                            Administración de préstamos</div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
@@ -154,7 +154,9 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Usuario</th>
-                                        <th>Fecha</th>
+                                        <th>Libro</th>
+                                        <th>Fecha de inicio</th>
+                                        <th>Fecha de finalización</th>
                                         <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -163,16 +165,32 @@
                                     <tr>
                                         <td>1</td>
                                         <td>Usuario de prueba</td>
-                                        <td><p class="date">03/15/2012</p></td>
-                                        <td><span class="label label-sm label-info">Pendinente de aprobación</span></td>
-                                        <td><button class="btn btn-block">Aprobar</button></td>
+                                        <td>Fundamentos de los videojuegos: Diseño de niveles</td>
+                                        <td><p class="date">03/03/2012</p></td>
+                                        <td><p class="date">03/06/2012</p></td>
+                                        <td><span class="label label-sm label-info">Plazo abierto</span></td>
+                                        <td><p><button class="btn btn-block disabled">Renovar plazo</button></p>
+                                            <p><button class="btn btn-block disabled">Notificar multa</button></p></td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>Usuario de prueba</td>
-                                        <td><p class="date">03/15/2012</p></td>
-                                        <td><span class="label label-sm label-success">Aprobado</span></td>
-                                        <td><button class="btn btn-block disabled">Aprobar</button></td>
+                                        <td>Fundamentos de los videojuegos: Diseño de niveles</td>
+                                        <td><p class="date">03/03/2012</p></td>
+                                        <td><p class="date">03/04/2012</p></td>
+                                        <td><span class="label label-sm label-success">Plazo cumplido</span></td>
+                                        <td><p><button class="btn btn-block disabled">Renovar plazo</button></p>
+                                            <p><button class="btn btn-block disabled">Notificar multa</button></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Usuario de prueba</td>
+                                        <td>Fundamentos de la informática</td>
+                                        <td><p class="date">03/03/2012</p></td>
+                                        <td><p class="date">03/05/2012</p></td>
+                                        <td><span class="label label-sm label-danger">Plazo sobrepasado</span></td>
+                                        <td><p><button class="btn btn-block">Renovar plazo</button></p>
+                                            <p><button class="btn btn-block">Notificar multa</button></p></td>
                                     </tr>
                                     </tbody>
                                 </table>
