@@ -1,4 +1,4 @@
-$("#add_book").click().click(function () {
+$(".add_book").click().click(function () {
     var elemento=$("#book_amnt");
     var book_nmb= Number(elemento.text());
     var newone = elemento.clone(true);
