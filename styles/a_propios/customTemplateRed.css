@@ -1,5 +1,6 @@
 
 /* Elimina el borde al pulsar o estar encima de un boton que no es cuadrado */
+/*
 .btn:focus,.btn:active {
     outline: none !important;
 }
@@ -34,7 +35,7 @@
 }
 
 
-
+*/
 
 /* Cambiamos el color del simbolo */
 .mytemplate-btn-circle:before{

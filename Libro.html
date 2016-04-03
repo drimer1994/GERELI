@@ -27,9 +27,67 @@
     <link rel="stylesheet" href="styles/a_propios/hover-min.css">
     <link rel="stylesheet" href="styles/a_propios/loginComponent.css">
     <link rel="stylesheet" href="styles/a_propios/customTemplateRed.css">
-    <link rel="stylesheet" href="styles/a_propios/profileComponent.css">
+
+    <link rel="stylesheet" href="styles/a_propios/template_propio.css">
+
+    <style type="text/css">
+
+        .stepwizard-step p {
+            margin-top: 10px;
+        }
+
+        .stepwizard-row {
+            display: table-row;
+        }
+
+        .stepwizard {
+            display: table;
+            width: 100%;
+            position: relative;
+        }
+
+        .stepwizard-step button[disabled] {
+            opacity: 1 !important;
+            filter: alpha(opacity=100) !important;
+        }
 
 
+        .linea-row{
+            top: 14px;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            z-order: 0;
+
+        }
+
+        .stepwizard-step {
+            display: table-cell;
+            text-align: center;
+            position: relative;
+        }
+
+        .btn-circle {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            padding: 6px 0;
+            font-size: 12px;
+            line-height: 1.428571429;
+            border-radius: 15px;
+        }
+        .stepwizard-content{
+            border:none !important;
+            float: left !important;
+            margin-top: 0 !important;
+            padding: 15px !important;
+            width: 100% !important;
+
+        }
+    </style>
 
 </head>
 <body>
@@ -128,12 +186,12 @@
             <div class="modal-body">
                 <div class="panel panel-login">
                     <div class="panel-heading">
-                        <div class="row">
+                        <div class="row" class="">
                             <div class="col-xs-6">
-                                <a href="#" class="active" id="login-form-link">Conectarse</a>
+                                <a href="#" class="active hvr-underline-from-right" id="login-form-link">Conectarse</a>
                             </div>
                             <div class="col-xs-6">
-                                <a href="#" id="register-form-link" class="">Registrarse</a>
+                                <a href="#" class="hvr-underline-from-left" id="register-form-link" class="">Registrarse</a>
                             </div>
                         </div>
                         <hr>
@@ -149,9 +207,9 @@
                                         <input type="password" name="password" id="login-form-password" tabindex="2" class="form-control" placeholder="Password">
                                     </div>
                                     <div class="form-group text-center">
-                    <span>
-                    <input type="checkbox" tabindex="3" name="login-form-remember" id="login-form-remember">
-                    </span>
+                                        <span>
+                                            <input type="checkbox" tabindex="3" name="login-form-remember" id="login-form-remember">
+                                        </span>
                                         <label for="login-form-remember"> Recuerdame</label>
                                     </div>
                                     <div class="form-group">
@@ -174,6 +232,56 @@
 
                                 <form id="register-form"  style="display: none;">
 
+                                    <div class="stepwizard">
+
+                                            <div class="stepwizard-row">
+                                                <div class="stepwizard-step col-sm-6">
+                                                    <a class="btn btn-default btn-circle active-step" disabled="disabled" href="#step-1" data-toggle="tab" onclick="stepnext(1)" >1</a>
+                                                    <p>Datos de Usuario</p>
+                                                </div>
+                                                <div class="stepwizard-step col-sm-6">
+                                                    <a class="btn btn-default btn-circle" disabled="disabled" href="#step-2" data-toggle="tab">2</a>
+                                                    <p>Password</p>
+                                                </div>
+                                            </div>
+
+                                        <div class="rate-updates">
+
+                                            <div class="tab-content margintop0" style="border:none !important;">
+                                                <div class="tab-pane fade padding20 " id="step-1">
+                                                    <div class="form-group">
+                                                        <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="email" name="email" id="email"  class="form-control" placeholder="Email Address" value="">
+                                                    </div>
+                                                    <div class="row">
+                                                        <button class="btn btn-xs col-sm-6 hvr-icon-wobble-horizontal pull-right" onclick="stepnext(2);" type="button"><i class="icon-next"></i> Siguiente</button>
+                                                    </div>
+                                                    </div>
+
+                                                <div class="tab-pane fade padding20 " id="step-2" >
+                                                    <div class="form-group">
+                                                        <input type="password" name="password" id="password"  class="form-control" placeholder="Password">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" name="confirm-password" id="confirm-password"  class="form-control" placeholder="Confirm Password">
+                                                    </div>
+                                                    <div class="row">
+                                                        <button class="btn btn-xs col-sm-6 prop hvr-icon-wobble-horizontal" onclick="stepnext(1);" type="button">Anterior</button>
+                                                        <button id="register-form-btn-sent " type="button" class="btn btn-xs hvr-icon-pop col-sm-6" >Registrarse</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+                                    <!--
                                     <ul id="register-form-tabs" class="nav nav-pills nav-justified">
                                         <li class="active"><a class="btn btn-primary mytemplate-btn-circle hvr-underline-from-right" id="register-form-userdata-tab" data-toggle="pill" href="#register-form-userdata">Datos de usuario</a></li>
                                         <li><a class="btn btn-primary mytemplate-btn-circle hvr-underline-from-left" data-toggle="pill" href="#register-form-personaldata">Datos personales</a></li>
@@ -203,6 +311,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    -->
                                 </form>
                             </div>
                         </div>
@@ -455,6 +564,27 @@
             $(this).removeClass("btn-default").addClass("btn-primary");
         });
     });
+</script>
+<script type="text/javascript">
+
+
+    function stepnext(n){
+
+        if(n != 0){
+            //$(".stepwizard-row a").switchClass('btn-primary','btn-default');
+           // $(".stepwizard-row a.active-step").removeClass('btn-primary');
+            $(".stepwizard-row a.active-step").removeClass('active-step');
+            $(".stepwizard-row a").addClass('btn-default');
+            $('.stepwizard a[href="#step-'+n+'"]').tab('show');
+            //$('.stepwizard-row a[href="#step-'+n+'"]').switchClass('btn-default','btn-primary');
+            $('.stepwizard-row a[href="#step-'+n+'"]').removeClass('btn-default');
+            $('.stepwizard-row a[href="#step-'+n+'"]').addClass('btn-primary');
+            $('.stepwizard-row a[href="#step-'+n+'"]').addClass('active-step');
+
+        }
+    }
+    stepnext(1);
+
 </script>
 
 
