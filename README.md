@@ -84,7 +84,7 @@ Página de login http://i.imgur.com/SleukVz.png
 
 Página de perfíl http://i.imgur.com/7EiNX4V.png
 
-Página de administración 
+Página de administración http://i.imgur.com/GBooOaa.png
 
 ## Diagrama de navegción
 Enlace https://drive.google.com/open?id=0B2N3iNpPLHN-NDR3Y2R2dU5QODlqSFZ6SEMwZGhhVVRaSmg0
